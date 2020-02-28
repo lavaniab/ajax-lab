@@ -21,9 +21,10 @@ function showWeather(evt) {
     let url = "/weather.json";
     let formData = {"zipcode": $("#zipcode-field").val()};
 
-
-    // TODO: request weather with that URL and show the forecast in #weather-info
-}
+    $.get('/weather.json', formData, (res) => {
+      // alert(`${ url['forecast'] }`);
+      alert(`${ res.forecast }`)});
+    };
 
 $("#weather-form").on('submit', showWeather);
 
