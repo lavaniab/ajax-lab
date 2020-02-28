@@ -41,8 +41,15 @@ function orderMelons(evt) {
     }
   
     $.post('/order-melons.json', formData, (res) => {
-      $('#order-status').html(`${ res.code }, ${ res.msg }`);
+      if (res.code === 'OK'){
+        $('#order-status').html(`${ res.code }, ${ res.msg }`);
+      }
+      else {
+        $('#order-status').html(`${ res.code }, ${ res.msg }`);
+      }
+      
      });
+
    
     // TODO: if the result code is ERROR, make it show up in red (see our CSS!)
 }
